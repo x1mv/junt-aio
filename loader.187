@@ -1,0 +1,32 @@
+local currentver = "v1"
+
+
+
+setfpscap(499)
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
+print("Junt All-In-One V1 loaded.")
+local notif = Notification.new("success", "Junt AIO", "Junt AIO "..currentver.." loaded.")
+local Sound = Instance.new("Sound", workspace)
+Sound.SoundId = "rbxassetid://1548304764" 
+Sound.Volume = 4 
+Sound:Play()
+local cmds = Drawing.new("Text")
+cmds.Visible = true
+cmds.Size = 24
+cmds.Color = Color3.fromHSV(1, 2, 3)
+cmds.Font = Drawing.Fonts.Monospace
+cmds.Outline = true
+cmds.OutlineColor = Color3.new(.01,.01,.01)
+cmds.Position = Vector2.new(1, 1)
+local script = Instance.new('LocalScript', Fps)
+local RunService = game:GetService("RunService")
+RunService.RenderStepped:Connect(function(frame)
+    cmds.Text = ("Junt AIO // FPS: "..math.round(1/frame))
+end)
+
+while wait() do
+	local t = 5; 
+	local hue = tick() % t / t
+	local colorrr = Color3.fromHSV(hue, 1, 1)
+	cmds.Color = colorrr
+end
