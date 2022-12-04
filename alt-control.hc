@@ -1,5 +1,4 @@
-getgenv().Host = "IMXP4" -- host user
-getgenv().CoHost = "IMXP4" -- cohost user, put your main user if you have no cohost
+
 
 repeat wait() until game:IsLoaded() -- wait til game loaded
 wait(1)
