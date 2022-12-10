@@ -1,6 +1,6 @@
 local currentver = "v1"
 print'Junt AIO - Powered by HolyC'
-game:service"RunService":SetRobloxGuiFocused(true)
+game:service"RunService":SetRobloxGuiFocused(false)
 -- Setup:
 Luazifier = {} 
 setmetatable(Luazifier, {__metatable = "Don' t touch my table P-Pervert!"})
