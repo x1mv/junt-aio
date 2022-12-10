@@ -54,7 +54,7 @@ local artistname = HttpService:JSONDecode(response.Body).item.album.artists[1].n
 local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = songname,
+        ["DescriptionText"] = "🔊 ".. songname,
         ["ImageId"] = 11788986028
     }
 }
@@ -64,7 +64,7 @@ wait(1.5)
 local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = artistname,
+        ["DescriptionText"] = "🧑‍🎨 ".. artistname,
         ["ImageId"] = 11788991344
     }
 }
@@ -74,7 +74,7 @@ wait(1.5)
 local args = {
     [1] = "Update",
     [2] = {
-        ["DescriptionText"] = albumname,
+        ["DescriptionText"] = "💽 ".. albumname,
         ["ImageId"] = 11788995369
     }
 }
