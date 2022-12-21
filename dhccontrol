@@ -1,0 +1,145 @@
+repeat wait() until game:IsLoaded() -- wait until loaded
+
+-- owner getgenv()
+
+getgenv().owner = readfile("Teejayx6KasherQuonDynamicDuo2onBlackAirForceActivity1/iLoveSmokingCocaineOffHookersAsses.killfaggots")
+
+-- money drop getgenv()
+
+getgenv().dropping = false
+
+-- variables
+local players, replicatedStorage = game:GetService("Players"), game:GetService("ReplicatedStorage")
+local defaultChatSystemChatEvents = replicatedStorage:FindFirstChild("DefaultChatSystemChatEvents")
+local onMessageDoneFiltering = defaultChatSystemChatEvents:FindFirstChild("OnMessageDoneFiltering")
+local localplayer = game.Players.LocalPlayer
+local Character = localplayer.Character or localplayer.CharacterAdded:Wait()
+local plrcrd = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+
+-- variables end
+
+-- main script
+
+onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
+    local speaker, message = players[messageData.FromSpeaker], messageData.Message
+
+        -- MISC COMMANDS
+    if speaker.Name == owner and message == ".p" then -- ping bots
+        if localplayer.Name == getgenv().owner then
+            print("user is owner, won't do command")
+        else
+        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(localplayer.Name .." responded")
+        end
+        -- MISC COMMANDS END
+
+        -- BASES
+    elseif speaker.Name == owner and message == ".vault" then -- BANK VAULT
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-507, 23, -287)
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+
+    elseif speaker.Name == owner and message == ".boxing" then -- BOX CLUB
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-247, 23, -1122)
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+
+    elseif speaker.Name == owner and message == ".admin" then -- ADMIN BASE
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-870, -38, -591)
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+
+    elseif speaker.Name == owner and message == ".park" then -- PARK
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(363, 49, -484)
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+
+    elseif speaker.Name == owner and message == ".court" then -- BASKETBALL COURT
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-928, 22, -483)
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+
+    elseif speaker.Name == owner and message == ".taco" then -- TACO SHOP
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(559, 51, -490)
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+
+    elseif speaker.Name == owner and message == ".roof" then -- SCHOOL ROOFTOP
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-594, 69, 311)
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+
+    elseif speaker.Name == owner and message == ".bring" then -- BRING TO OWNER
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[owner].Character.HumanoidRootPart.CFrame
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+        -- BASES END
+        
+
+        -- MONEY COMMANDS
+    elseif speaker.Name == owner and message == ".drop" then -- STARTS MONEY DROP
+        if localplayer.Name == getgenv().owner then
+            --
+        else
+        getgenv().dropping = true
+        while getgenv().dropping == true do
+            wait(0.5)
+            local args = {
+                [1] = "DropMoney",
+                [2] = "10000"
+            }
+            
+            game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+            end
+        end
+        
+    elseif speaker.Name == owner and message == ".undrop" then -- STOPS MONEY DROP
+        getgenv().dropping = false
+
+
+    elseif speaker.Name == owner and message == ".100k" then -- FREE 100K (Only works once on every account)
+        local args = {
+            [1] = "EnterPromoCode",
+            [2] = "RevolverWinter2022"
+        }
+        
+        game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+
+-- MONEY COMMANDS END
+
+-- MISC COMMANDS
+
+    elseif speaker.Name == owner and message == ".block" then -- STARTS BLOCK
+        if localplayer.Name == getgenv().owner then
+            --
+        else
+        local args = {
+            [1] = "Block",
+            [2] = true
+        }
+        
+        game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+        end
+        
+    elseif speaker.Name == owner and message == ".unblock" then -- STOPS BLOCK
+        if localplayer.Name == getgenv().owner then
+            --
+        else
+        local args = {
+            [1] = "Block",
+            [2] = false
+        }
+        
+        game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+
+        end
+        
+    elseif speaker.Name == owner and message == ".performance" then -- PERFORMANCE MODE
+        if localplayer.Name == getgenv().owner then
+            --
+        else
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/x1mv/junt-aio/main/perfmode.lua'))()
+        end
+        
+    elseif speaker.Name == owner and message == ".lowgfx" then -- LOW GFX
+        if localplayer.Name == getgenv().owner then
+            --
+        else
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/x1mv/junt-aio/main/angrybirds'))()
+        end
+    end
+end)
+
+-- MISC COMMANDS END
